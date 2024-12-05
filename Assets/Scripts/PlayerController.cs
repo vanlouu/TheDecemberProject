@@ -16,13 +16,19 @@ public class PlayerController : MonoBehaviour {
     private float JumpBufferCounter;
     #endregion
 
+    public bool testMovement = false;
+    
+
+
+    public GameObject mCamera, testArea,testRemovable,testDestination;
     Rigidbody2D rb;
     #endregion
 
     // Use this for initialization
     void Start () 
 	{
-		rb = GetComponent<Rigidbody2D>();	
+		rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(CameraShake());
 	}
 	
 	// Update is called once per frame
@@ -30,14 +36,28 @@ public class PlayerController : MonoBehaviour {
 
 		Movement();
 
+        //THIS COULD PROBABLY BE MOVED SOMEWHERE ELSE IN THE FUTURE
+        //moves the area to where it needs to be, and if it is there it stops the shake
+        if(testArea.transform.position==testDestination.transform.position)
+        {
+            testMovement = false;
+            testRemovable.SetActive(false);
+        }
+        else if(testMovement)
+        {
+            testArea.transform.position = Vector3.MoveTowards(testArea.transform.position, testDestination.transform.position, 3f*Time.deltaTime);
+        }
+
 	}
 
 	public void Movement()
 	{
+        //moving right
 		if(Input.GetKey(KeyCode.D))
 		{
 			gameObject.transform.position += new Vector3(.05f,0,0);
 		}
+        //moving left
         if (Input.GetKey(KeyCode.A))
         {
             gameObject.transform.position += new Vector3(-.05f, 0, 0);
@@ -72,5 +92,63 @@ public class PlayerController : MonoBehaviour {
             rb.AddForce(new Vector2(0, JumpPower));
         }
         #endregion
+    }
+
+
+    //trigger enter stuff
+   private void OnTriggerEnter2D(Collider2D other)
+    {
+        //fade away the black part
+       if (other.tag=="Fade")
+       {
+           StartCoroutine(Fade(other.gameObject));
+       }
+       //start the movement
+       if(other.tag=="TestButton")
+        {
+            testMovement = true;
+            StartCoroutine(CameraShake());
+            other.gameObject.SetActive(false);
+        }
+
+   }
+
+    //fade an object and then make it inactive
+    IEnumerator Fade(GameObject obj)
+    {
+        for (float i = 255f; i>=0; i-=5f)
+        {
+            obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, i/255f);
+            yield return new WaitForEndOfFrame();
+            print(i);
+        }
+        obj.SetActive(false);
+    }
+
+
+    //shake the camera if an area is moving
+    IEnumerator CameraShake()
+    {
+        if (testMovement)
+        {
+            mCamera.transform.position += new Vector3(0, .1f, 0);
+            yield return new WaitForEndOfFrame();
+            mCamera.transform.position += new Vector3(.1f, 0, 0);
+            yield return new WaitForEndOfFrame();
+            mCamera.transform.position += new Vector3(0, -.1f, 0);
+            yield return new WaitForEndOfFrame();
+            mCamera.transform.position += new Vector3(0, -.1f, 0);
+            yield return new WaitForEndOfFrame();
+            mCamera.transform.position += new Vector3(-.1f, 0, 0);
+            yield return new WaitForEndOfFrame();
+            mCamera.transform.position += new Vector3(-.1f, 0, 0);
+            yield return new WaitForEndOfFrame();
+            mCamera.transform.position += new Vector3(0, .1f, 0);
+            yield return new WaitForEndOfFrame();
+            mCamera.transform.position += new Vector3(.1f, 0, 0);
+            yield return new WaitForEndOfFrame();
+            StartCoroutine(CameraShake());
+        }
+        yield return new WaitForEndOfFrame();
     }
 }
