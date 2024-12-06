@@ -22,13 +22,16 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject mCamera, testArea,testRemovable,testDestination;
     Rigidbody2D rb;
+
+    public PlatControls PlatCon;
     #endregion
 
     // Use this for initialization
     void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(CameraShake());
+        //StartCoroutine(CameraShake()); dont think we need this
+        PlatCon = GameObject.Find("Plat Manager").GetComponent<PlatControls>();
 	}
 	
 	// Update is called once per frame
@@ -36,18 +39,7 @@ public class PlayerController : MonoBehaviour {
 
 		Movement();
 
-        //THIS COULD PROBABLY BE MOVED SOMEWHERE ELSE IN THE FUTURE
-        //moves the area to where it needs to be, and if it is there it stops the shake
-        if(testArea.transform.position==testDestination.transform.position)
-        {
-            testMovement = false;
-            testRemovable.SetActive(false);
-        }
-        else if(testMovement)
-        {
-            testArea.transform.position = Vector3.MoveTowards(testArea.transform.position, testDestination.transform.position, 3f*Time.deltaTime);
-        }
-
+        
 	}
 
 	public void Movement()
@@ -107,8 +99,8 @@ public class PlayerController : MonoBehaviour {
        //start the movement
        if(other.tag=="TestButton")
         {
-            testMovement = true;
-            StartCoroutine(CameraShake());
+            //call the platform moving method and give it the button num
+            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
             other.gameObject.SetActive(false);
         }
 
@@ -125,31 +117,5 @@ public class PlayerController : MonoBehaviour {
         }
         obj.SetActive(false);
     }
-
-
-    //shake the camera if an area is moving
-    IEnumerator CameraShake()
-    {
-        if (testMovement)
-        {
-            mCamera.transform.position += new Vector3(0, .1f, 0);
-            yield return new WaitForEndOfFrame();
-            mCamera.transform.position += new Vector3(.1f, 0, 0);
-            yield return new WaitForEndOfFrame();
-            mCamera.transform.position += new Vector3(0, -.1f, 0);
-            yield return new WaitForEndOfFrame();
-            mCamera.transform.position += new Vector3(0, -.1f, 0);
-            yield return new WaitForEndOfFrame();
-            mCamera.transform.position += new Vector3(-.1f, 0, 0);
-            yield return new WaitForEndOfFrame();
-            mCamera.transform.position += new Vector3(-.1f, 0, 0);
-            yield return new WaitForEndOfFrame();
-            mCamera.transform.position += new Vector3(0, .1f, 0);
-            yield return new WaitForEndOfFrame();
-            mCamera.transform.position += new Vector3(.1f, 0, 0);
-            yield return new WaitForEndOfFrame();
-            StartCoroutine(CameraShake());
-        }
-        yield return new WaitForEndOfFrame();
-    }
+    //moved camera shake to PlatControls
 }
