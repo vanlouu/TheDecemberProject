@@ -14,7 +14,7 @@ public class JumpCheck : MonoBehaviour
 		PC = GameObject.Find("Player").GetComponent<PlayerController>();
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	private void OnTriggerStay2D(Collider2D other)
 	{
 		//check if we collided with the ground
 		if (other.tag == "Ground")

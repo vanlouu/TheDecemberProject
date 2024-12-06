@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour {
             //we're jumping so we can reset the buffer 
             JumpBufferCounter = 0;
             CoyoteCounter = 0;
+            Grounded = false;
 
             //actually jumping
             rb.AddForce(new Vector2(0, JumpPower));

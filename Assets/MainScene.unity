@@ -120,7 +120,6 @@ GameObject:
   - component: {fileID: 23203618}
   - component: {fileID: 23203617}
   - component: {fileID: 23203616}
-  - component: {fileID: 23203615}
   m_Layer: 0
   m_Name: Ground (4)
   m_TagString: Ground
@@ -128,17 +127,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &23203615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 23203614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &23203616
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -318,7 +306,6 @@ GameObject:
   - component: {fileID: 88641877}
   - component: {fileID: 88641876}
   - component: {fileID: 88641875}
-  - component: {fileID: 88641874}
   m_Layer: 0
   m_Name: Ground (8)
   m_TagString: Untagged
@@ -326,17 +313,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &88641874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 88641873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &88641875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -427,7 +403,6 @@ GameObject:
   - component: {fileID: 129708399}
   - component: {fileID: 129708398}
   - component: {fileID: 129708397}
-  - component: {fileID: 129708396}
   m_Layer: 0
   m_Name: Ground (5)
   m_TagString: Ground
@@ -435,17 +410,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &129708396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 129708395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &129708397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -568,7 +532,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0009821355, y: -0.16485742}
+  m_Offset: {x: 0.0050490834, y: -0.16968293}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -579,7 +543,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.298764, y: 0.0149784535}
+  m_Size: {x: 0.24789208, y: 0.024629503}
   m_EdgeRadius: 0
 --- !u!114 &492143145
 MonoBehaviour:
@@ -602,7 +566,6 @@ GameObject:
   - component: {fileID: 504004225}
   - component: {fileID: 504004224}
   - component: {fileID: 504004223}
-  - component: {fileID: 504004222}
   m_Layer: 0
   m_Name: Ground (12)
   m_TagString: TestButton
@@ -610,17 +573,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &504004222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 504004221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &504004223
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -711,7 +663,6 @@ GameObject:
   - component: {fileID: 893253999}
   - component: {fileID: 893254002}
   - component: {fileID: 893254001}
-  - component: {fileID: 893254000}
   m_Layer: 0
   m_Name: Ground (16)
   m_TagString: Untagged
@@ -732,17 +683,6 @@ Transform:
   m_Father: {fileID: 1751504447}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &893254000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 893253998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &893254001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -820,7 +760,6 @@ GameObject:
   - component: {fileID: 926440247}
   - component: {fileID: 926440250}
   - component: {fileID: 926440249}
-  - component: {fileID: 926440248}
   m_Layer: 0
   m_Name: Ground (13)
   m_TagString: Ground
@@ -841,17 +780,6 @@ Transform:
   m_Father: {fileID: 1751504447}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &926440248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 926440246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &926440249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -957,7 +885,6 @@ GameObject:
   - component: {fileID: 1034498257}
   - component: {fileID: 1034498256}
   - component: {fileID: 1034498255}
-  - component: {fileID: 1034498254}
   m_Layer: 0
   m_Name: Ground (1)
   m_TagString: Untagged
@@ -965,17 +892,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1034498254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1034498253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1034498255
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1066,7 +982,6 @@ GameObject:
   - component: {fileID: 1146864421}
   - component: {fileID: 1146864420}
   - component: {fileID: 1146864419}
-  - component: {fileID: 1146864418}
   m_Layer: 0
   m_Name: Ground (6)
   m_TagString: Ground
@@ -1074,17 +989,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1146864418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1146864417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1146864419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1314,7 +1218,6 @@ GameObject:
   - component: {fileID: 1224538025}
   - component: {fileID: 1224538024}
   - component: {fileID: 1224538023}
-  - component: {fileID: 1224538022}
   m_Layer: 0
   m_Name: Ground (9)
   m_TagString: Ground
@@ -1322,17 +1225,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1224538022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1224538021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1224538023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1423,7 +1315,6 @@ GameObject:
   - component: {fileID: 1259304961}
   - component: {fileID: 1259304960}
   - component: {fileID: 1259304959}
-  - component: {fileID: 1259304958}
   m_Layer: 0
   m_Name: Ground (7)
   m_TagString: Fade
@@ -1431,17 +1322,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1259304958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1259304957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1259304959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1532,7 +1412,6 @@ GameObject:
   - component: {fileID: 1306118197}
   - component: {fileID: 1306118196}
   - component: {fileID: 1306118195}
-  - component: {fileID: 1306118194}
   m_Layer: 0
   m_Name: Ground (3)
   m_TagString: Ground
@@ -1540,17 +1419,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1306118194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1306118193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1306118195
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1641,7 +1509,6 @@ GameObject:
   - component: {fileID: 1412356929}
   - component: {fileID: 1412356928}
   - component: {fileID: 1412356927}
-  - component: {fileID: 1412356926}
   m_Layer: 0
   m_Name: Ground (10)
   m_TagString: Ground
@@ -1649,17 +1516,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1412356926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1412356925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1412356927
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1750,7 +1606,6 @@ GameObject:
   - component: {fileID: 1451619047}
   - component: {fileID: 1451619046}
   - component: {fileID: 1451619045}
-  - component: {fileID: 1451619044}
   m_Layer: 0
   m_Name: Ground (11)
   m_TagString: Ground
@@ -1758,17 +1613,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1451619044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1451619043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1451619045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1859,7 +1703,6 @@ GameObject:
   - component: {fileID: 1525025344}
   - component: {fileID: 1525025343}
   - component: {fileID: 1525025342}
-  - component: {fileID: 1525025345}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
@@ -1947,17 +1790,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1525025345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1525025341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1751504446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,7 +1832,6 @@ GameObject:
   - component: {fileID: 1804829136}
   - component: {fileID: 1804829135}
   - component: {fileID: 1804829134}
-  - component: {fileID: 1804829133}
   m_Layer: 0
   m_Name: Ground (2)
   m_TagString: Untagged
@@ -2008,17 +1839,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1804829133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1804829132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1804829134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2109,7 +1929,6 @@ GameObject:
   - component: {fileID: 1954271964}
   - component: {fileID: 1954271967}
   - component: {fileID: 1954271966}
-  - component: {fileID: 1954271965}
   m_Layer: 0
   m_Name: Ground (14)
   m_TagString: Untagged
@@ -2130,17 +1949,6 @@ Transform:
   m_Father: {fileID: 1751504447}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &1954271965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1954271963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b39d5db8a1a4e44a281d1421ba498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1954271966
 BoxCollider2D:
   m_ObjectHideFlags: 0
