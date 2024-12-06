@@ -103,6 +103,21 @@ public class PlayerController : MonoBehaviour {
             PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
             other.gameObject.SetActive(false);
         }
+       //if you just want to remove an area (this might not be useful)
+       if(other.tag=="TestRemoveButton")
+        {
+            PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
+            other.gameObject.SetActive(false);
+               
+        }
+       //if you want to remove an area and move one in
+        if (other.tag == "BothButton")
+        {
+            print("Huh?");
+            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
+            PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
+            other.gameObject.SetActive(false);
+        }
 
    }
 
@@ -113,7 +128,6 @@ public class PlayerController : MonoBehaviour {
         {
             obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, i/255f);
             yield return new WaitForEndOfFrame();
-            print(i);
         }
         obj.SetActive(false);
     }

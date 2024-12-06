@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Fade
   - TestButton
+  - TestRemoveButton
+  - BothButton
   layers:
   - Default
   - TransparentFX
