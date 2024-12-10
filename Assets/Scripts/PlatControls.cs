@@ -85,6 +85,14 @@ public class PlatControls : MonoBehaviour {
             Destination = tempDestination;
             Movement = true;
         }
+        if(ButtonNum==5)
+        {
+            Area = tempArea;
+            Removable = tempRemovable;
+            Destination = tempDestination;
+            Movement = true;
+            StartCoroutine(CameraShake());
+        }
     }
 
     //used to remove areas
