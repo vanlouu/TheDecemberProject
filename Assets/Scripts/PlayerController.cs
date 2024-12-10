@@ -5,22 +5,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     #region Variables
+    public float MoveSpeed = .05f;
 
     #region Jump Vars
-    float JumpPower = 300; //amount of force we jump with
-    public   bool Grounded; //for checking if we should be able to jump
+    public float JumpPower = 300; //amount of force we jump with
+    [HideInInspector]
+    public bool Grounded; //for checking if we should be able to jump
 
     public float CoyoteTime = .2f; //amount of time after walking off a platform we cazzn still jump (makes it feel good)
     private float CoyoteCounter;
     public float JumpBuffer = .2f; //amount of time player can buffer the jump (in simple terms you can press space to jump a little before hitting the ground)
     private float JumpBufferCounter;
+    public float fallMult = 2.5f, lowJumpMult = 2;
     #endregion
 
-    public bool testMovement = false;
     
-
-
-    public GameObject mCamera, testArea,testRemovable,testDestination;
     Rigidbody2D rb;
 
     public PlatControls PlatCon;
@@ -47,12 +46,12 @@ public class PlayerController : MonoBehaviour {
         //moving right
 		if(Input.GetKey(KeyCode.D))
 		{
-			gameObject.transform.position += new Vector3(.05f,0,0);
+			gameObject.transform.position += new Vector3(MoveSpeed,0,0);
 		}
         //moving left
         if (Input.GetKey(KeyCode.A))
         {
-            gameObject.transform.position += new Vector3(-.05f, 0, 0);
+            gameObject.transform.position += new Vector3(-MoveSpeed, 0, 0);
         }
 
         #region Jump Controls
@@ -82,8 +81,23 @@ public class PlayerController : MonoBehaviour {
             Grounded = false;
 
             //actually jumping
-            rb.AddForce(new Vector2(0, JumpPower));
+            rb.velocity = new Vector2(rb.velocity.x, JumpPower);
         }
+
+        //could have sworn i put this in earlier
+        //player fall faster
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMult - 1) * Time.deltaTime;
+        }
+
+        //player can short hop
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMult - 1) * Time.deltaTime;
+            CoyoteCounter = 0f;
+        }
+
         #endregion
     }
 
@@ -94,6 +108,7 @@ public class PlayerController : MonoBehaviour {
         //fade away the black part
        if (other.tag=="Fade")
        {
+           other.GetComponent<BoxCollider2D>().enabled = false; //so we dont reactivate the fading animation
            StartCoroutine(Fade(other.gameObject));
        }
        //start the movement
