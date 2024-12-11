@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour {
     public float JumpBuffer = .2f; //amount of time player can buffer the jump (in simple terms you can press space to jump a little before hitting the ground)
     private float JumpBufferCounter;
     public float fallMult = 2.5f, lowJumpMult = 2;
+
+    public bool HaveDoubleJump = false; //bool that checks if we have a double jump available
+    public bool CanDoubleJump = false; //bool that check is we have the double jump ability (planning on putting this on button 5)
     #endregion
 
     
@@ -38,7 +41,6 @@ public class PlayerController : MonoBehaviour {
 
 		Movement();
 
-        
 	}
 
 	public void Movement()
@@ -73,13 +75,18 @@ public class PlayerController : MonoBehaviour {
             JumpBufferCounter -= Time.deltaTime;
 
         //if player has pressed space (jump buffer) and we are still within coyote time, jump
-        if(JumpBufferCounter > 0f && CoyoteCounter > 0f)
+        if((JumpBufferCounter > 0f && CoyoteCounter > 0f) || HaveDoubleJump && Input.GetKeyDown(KeyCode.Space))
         {
-            //we're jumping so we can reset the buffer 
-            JumpBufferCounter = 0;
-            CoyoteCounter = 0;
-            Grounded = false;
-
+           //if we're not grounded and jumping, it means we're double jumping 
+            if (!Grounded)
+                HaveDoubleJump = false;
+            else
+            {
+                //we're jumping so we can reset the buffer 
+                JumpBufferCounter = 0;
+                CoyoteCounter = 0;
+                Grounded = false;
+            }
             //actually jumping
             rb.velocity = new Vector2(rb.velocity.x, JumpPower);
         }

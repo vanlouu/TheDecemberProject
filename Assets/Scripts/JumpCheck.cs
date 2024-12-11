@@ -20,6 +20,8 @@ public class JumpCheck : MonoBehaviour
 		if (other.tag == "Ground")
 		{
 			PC.Grounded = true;
+			if (PC.CanDoubleJump)
+				PC.HaveDoubleJump = true;
 		}
 	}
 
