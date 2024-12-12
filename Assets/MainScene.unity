@@ -4746,7 +4746,7 @@ MonoBehaviour:
   MoveSpeed: 0.06
   JumpPower: 5.9
   Grounded: 0
-  CoyoteTime: 0.23
+  CoyoteTime: 0.15
   JumpBuffer: 0.2
   fallMult: 2.5
   lowJumpMult: 3

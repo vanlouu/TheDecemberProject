@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour {
         if((JumpBufferCounter > 0f && CoyoteCounter > 0f) || HaveDoubleJump && Input.GetKeyDown(KeyCode.Space))
         {
            //if we're not grounded and jumping, it means we're double jumping 
-            if (!Grounded)
+            if (!Grounded && CoyoteCounter <= 0)
                 HaveDoubleJump = false;
             else
             {

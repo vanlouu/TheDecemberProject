@@ -111,7 +111,7 @@ public class PlatControls : MonoBehaviour {
     IEnumerator CameraShake()
     {
         print("Camera shake was called");
-        if (Movement||RemovingMovement)
+        while(Movement||RemovingMovement)
         {
             mCamera.transform.position += new Vector3(0, .1f, 0);
             yield return new WaitForEndOfFrame();
@@ -129,7 +129,6 @@ public class PlatControls : MonoBehaviour {
             yield return new WaitForEndOfFrame();
             mCamera.transform.position += new Vector3(.1f, 0, 0);
             yield return new WaitForEndOfFrame();
-            StartCoroutine(CameraShake());
         }
         yield return new WaitForEndOfFrame();
     }
