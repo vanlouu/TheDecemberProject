@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     public float fallMult = 2.5f, lowJumpMult = 2;
 
     public bool HaveDoubleJump = false; //bool that checks if we have a double jump available
+    //[HideInInspector]
     public bool CanDoubleJump = false; //bool that check is we have the double jump ability (planning on putting this on button 5)
     #endregion
 
@@ -88,7 +89,12 @@ public class PlayerController : MonoBehaviour {
                 Grounded = false;
             }
             //actually jumping
-            rb.velocity = new Vector2(rb.velocity.x, JumpPower);
+            if (HaveDoubleJump == false && CanDoubleJump) //if we have double jump ability and are using the double jump
+            {
+                rb.velocity = new Vector2(rb.velocity.x, JumpPower / 1.5f); //give weaker jump
+            }
+            else
+                rb.velocity = new Vector2(rb.velocity.x, JumpPower); //otherwise jump normally
         }
 
         //could have sworn i put this in earlier
@@ -121,6 +127,12 @@ public class PlayerController : MonoBehaviour {
        //start the movement
        if(other.tag=="TestButton")
         {
+            //check if this is button number 5
+            if (other.gameObject.name == "Button5")
+            {
+                CanDoubleJump = true;
+                print("Obtained double jump ability");
+            }
             //call the platform moving method and give it the button num
             PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
             other.gameObject.SetActive(false);

@@ -110,6 +110,7 @@ public class PlatControls : MonoBehaviour {
     //shake the camera if an area is moving
     IEnumerator CameraShake()
     {
+        print("Camera shake was called");
         if (Movement||RemovingMovement)
         {
             mCamera.transform.position += new Vector3(0, .1f, 0);

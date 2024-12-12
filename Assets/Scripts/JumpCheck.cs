@@ -21,11 +21,14 @@ public class JumpCheck : MonoBehaviour
 		{
 			PC.Grounded = true;
 			if (PC.CanDoubleJump)
+			{
 				PC.HaveDoubleJump = true;
-		}
-	}
+				print("Regained double jump");
+			}
+        }
+    }
 
-	private void OnTriggerExit2D(Collider2D other)
+        private void OnTriggerExit2D(Collider2D other)
     {
 		//if we leave ground, we're no longer grounded (crazy I know)
 		if(other.tag == "Ground")
