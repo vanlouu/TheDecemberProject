@@ -32,4 +32,18 @@ public class MovingPlat : MonoBehaviour {
 
 		transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
 	}
+
+	//when we step on the platform, become a parent (to move the player weith the platform
+	private void OnCollisionEnter2D(Collision2D collision)
+    {
+		print("Colliding with plat");
+		collision.transform.SetParent(transform);
+    }
+
+	//when we stop colliding, no longer be parent
+	private void OnCollisionExit2D(Collision2D collision)
+    {
+		print("Stopped Colliding with plat");
+		collision.transform.SetParent(null);
+    }
 }
