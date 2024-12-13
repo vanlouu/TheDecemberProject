@@ -135,7 +135,8 @@ public class PlayerController : MonoBehaviour {
             }
             //call the platform moving method and give it the button num
             PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
-            other.gameObject.SetActive(false);
+            other.GetComponent<BoxCollider2D>().enabled = false;
+            other.GetComponent<SpriteRenderer>().enabled = false;
         }
        //if you just want to remove an area (this might not be useful)
        if(other.tag=="TestRemoveButton")

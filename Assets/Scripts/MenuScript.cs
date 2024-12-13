@@ -5,18 +5,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-
+	public GameObject bgImage;
 	public void StartGame()
 	{
 		SceneManager.LoadScene("MainScene");
@@ -26,4 +15,15 @@ public class MenuScript : MonoBehaviour {
 	{
 		Application.Quit();
 	}
+
+	public void Resume()
+    {
+		Time.timeScale = 1;
+		bgImage.SetActive(false);
+    }
+
+	public void Disable(GameObject obj)
+    {
+		obj.SetActive(false);
+    }
 }
