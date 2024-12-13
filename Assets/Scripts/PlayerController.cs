@@ -153,6 +153,11 @@ public class PlayerController : MonoBehaviour {
             PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
             other.gameObject.SetActive(false);
         }
+        //teleport player to the destination thats on the teleporter
+        if(other.tag =="Kill")
+        {
+            gameObject.transform.position = other.gameObject.GetComponent<KillInfo>().tele.transform.position;
+        }
 
    }
 

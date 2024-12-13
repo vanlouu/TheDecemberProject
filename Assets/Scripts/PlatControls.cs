@@ -7,7 +7,7 @@ public class PlatControls : MonoBehaviour {
 
 	#region Vars
 	public bool Movement,RemovingMovement;
-    public GameObject mCamera;
+    public GameObject mCamera,DestroyedV;
     [HideInInspector] //these get filled by the button
     public GameObject Area, Removable, Destination,removeDestination,removeArea;
 	#endregion
@@ -27,9 +27,11 @@ public class PlatControls : MonoBehaviour {
 
     public void TheMovement()
     {
-        if (Area.transform.position == Destination.transform.position)
+        if (Area.transform.position == Destination.transform.position&&Movement)
         {
             Movement = false;
+            //making the destruction anim
+            Instantiate(DestroyedV, Removable.transform.position, Quaternion.identity);
             Removable.SetActive(false);
         }
         else if (Movement)

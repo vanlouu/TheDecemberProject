@@ -9,6 +9,7 @@ TagManager:
   - TestButton
   - TestRemoveButton
   - BothButton
+  - Kill
   layers:
   - Default
   - TransparentFX
