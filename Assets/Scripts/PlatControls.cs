@@ -33,7 +33,7 @@ public class PlatControls : MonoBehaviour {
             //making the destruction anim
             Instantiate(DestroyedV, Removable.transform.position, Removable.transform.rotation);
             Removable.SetActive(false);
-            Removable = null; //removable needs to no longer exsist so it weont play when there is no removable
+           // Removable = null; //removable needs to no longer exsist so it weont play when there is no removable
         }
         else if (Movement)
         {
