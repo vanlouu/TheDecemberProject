@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     Rigidbody2D rb;
 
     public PlatControls PlatCon;
+    public PlatControls PlatCon2;
     #endregion
 
     // Use this for initialization
@@ -35,7 +36,8 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
         //StartCoroutine(CameraShake()); dont think we need this
         PlatCon = GameObject.Find("Plat Manager").GetComponent<PlatControls>();
-	}
+        PlatCon2 = GameObject.Find("Plat Manager2").GetComponent<PlatControls>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -141,7 +143,7 @@ public class PlayerController : MonoBehaviour {
        //if you just want to remove an area (this might not be useful)
        if(other.tag=="TestRemoveButton")
         {
-            PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
+            PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
             other.gameObject.SetActive(false);
                
         }
@@ -150,9 +152,19 @@ public class PlayerController : MonoBehaviour {
         {
             print("Huh?");
             PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
-            PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
+            PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
             other.gameObject.SetActive(false);
         }
+        //move two areas at once (crazy i know)
+        if (other.tag == "DoubleButton")
+        {
+            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
+            PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
+            PlatCon2.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum2, other.gameObject.GetComponent<ButtonInfo>().Area2, other.gameObject.GetComponent<ButtonInfo>().Removable2, other.gameObject.GetComponent<ButtonInfo>().Destination2);
+            PlatCon2.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().removeArea2, other.gameObject.GetComponent<ButtonInfo>().removeDestination2);
+            other.gameObject.SetActive(false);
+        }
+        
         //teleport player to the destination thats on the teleporter
         if(other.tag =="Kill")
         {

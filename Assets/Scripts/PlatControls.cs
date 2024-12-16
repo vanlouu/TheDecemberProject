@@ -31,8 +31,9 @@ public class PlatControls : MonoBehaviour {
         {
             Movement = false;
             //making the destruction anim
-            Instantiate(DestroyedV, Removable.transform.position, Quaternion.identity);
+            Instantiate(DestroyedV, Removable.transform.position, Removable.transform.rotation);
             Removable.SetActive(false);
+            Removable = null; //removable needs to no longer exsist so it weont play when there is no removable
         }
         else if (Movement)
         {
@@ -95,24 +96,29 @@ public class PlatControls : MonoBehaviour {
             Movement = true;
             StartCoroutine(CameraShake());
         }
+        //move with no camera shake
+        if(ButtonNum == 6)
+        {
+            Area = tempArea;
+            Removable = tempRemovable;
+            Destination = tempDestination;
+            Movement = true;
+        }
     }
 
     //used to remove areas
-    public void RemovePlat(int ButtonNum, GameObject tempArea,GameObject tempDestination)
+    public void RemovePlat(GameObject tempArea,GameObject tempDestination)
     {
-        if(ButtonNum==4)
-        {
-            removeArea = tempArea;
-            removeDestination = tempDestination;
-            RemovingMovement = true;
-            StartCoroutine(CameraShake());
-        }
+        removeArea = tempArea;
+        removeDestination = tempDestination;
+        RemovingMovement = true;
+        StartCoroutine(CameraShake());
+        
     }
 
     //shake the camera if an area is moving
     IEnumerator CameraShake()
     {
-        print("Camera shake was called");
         while(Movement||RemovingMovement)
         {
             mCamera.transform.position += new Vector3(0, .1f, 0);

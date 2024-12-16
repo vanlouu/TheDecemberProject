@@ -23,7 +23,6 @@ public class JumpCheck : MonoBehaviour
 			if (PC.CanDoubleJump)
 			{
 				PC.HaveDoubleJump = true;
-				print("Regained double jump");
 			}
         }
     }
