@@ -6713,6 +6713,9 @@ MonoBehaviour:
   CanDoubleJump: 0
   PlatCon: {fileID: 1753032712}
   PlatCon2: {fileID: 1389259474}
+  NormalJump: {fileID: 8300000, guid: 380bff4a50fae36429e03c504c65415e, type: 3}
+  DoubleJump: {fileID: 8300000, guid: 380bff4a50fae36429e03c504c65415e, type: 3}
+  Death: {fileID: 8300000, guid: 380bff4a50fae36429e03c504c65415e, type: 3}
 --- !u!61 &1209964634
 BoxCollider2D:
   m_ObjectHideFlags: 0

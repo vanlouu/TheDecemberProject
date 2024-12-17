@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
 
     AudioSource aud;
-    AudioClip NormalJump, DoubleJump, Death;
+    public AudioClip NormalJump, DoubleJump, Death;
     #endregion
 
     // Use this for initialization
@@ -111,12 +111,12 @@ public class PlayerController : MonoBehaviour {
             if (HaveDoubleJump == false && CanDoubleJump) //if we have double jump ability and are using the double jump
             {
                 rb.velocity = new Vector2(rb.velocity.x, JumpPower / 1.5f); //give weaker jump
-                aud.PlayOneShot(DoubleJump);
+          //      aud.PlayOneShot(DoubleJump);
             }
             else
             {
                 rb.velocity = new Vector2(rb.velocity.x, JumpPower); //otherwise jump normally
-                aud.PlayOneShot(NormalJump);
+           //     aud.PlayOneShot(NormalJump);
             }
         }
 
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour {
         if(other.tag =="Kill")
         {
             gameObject.transform.position = other.gameObject.GetComponent<KillInfo>().tele.transform.position;
-            aud.PlayOneShot(Death);
+       //     aud.PlayOneShot(Death);
         }
 
    }
