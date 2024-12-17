@@ -10,11 +10,13 @@ public class PlatControls : MonoBehaviour {
     public GameObject mCamera,DestroyedV;
     [HideInInspector] //these get filled by the button
     public GameObject Area, Removable, Destination,removeDestination,removeArea;
+
+    AudioSource aud;
 	#endregion
 	// Use this for initialization
 	void Start () 
 	{
-		
+		aud = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -34,6 +36,9 @@ public class PlatControls : MonoBehaviour {
             Instantiate(DestroyedV, Removable.transform.position, Removable.transform.rotation);
             Removable.SetActive(false);
            // Removable = null; //removable needs to no longer exsist so it weont play when there is no removable
+
+           //stop the sound
+           aud.Pause();
         }
         else if (Movement)
         {
@@ -104,6 +109,8 @@ public class PlatControls : MonoBehaviour {
             Destination = tempDestination;
             Movement = true;
         }
+        aud.time = 0;
+        aud.Play();
     }
 
     //used to remove areas

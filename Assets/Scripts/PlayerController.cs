@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour {
 
     public PlatControls PlatCon;
     public PlatControls PlatCon2;
+
+    Animator anim;
+
+    AudioSource aud;
+    AudioClip NormalJump, DoubleJump, Death;
     #endregion
 
     // Use this for initialization
@@ -37,6 +42,7 @@ public class PlayerController : MonoBehaviour {
         //StartCoroutine(CameraShake()); dont think we need this
         PlatCon = GameObject.Find("Plat Manager").GetComponent<PlatControls>();
         PlatCon2 = GameObject.Find("Plat Manager2").GetComponent<PlatControls>();
+        anim = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -44,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 
 		Movement();
 
+        anim.SetBool("Grounded", Grounded);
 	}
 
 	public void Movement()
@@ -52,11 +59,21 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey(KeyCode.D))
 		{
 			gameObject.transform.position += new Vector3(MoveSpeed,0,0);
-		}
+            transform.localEulerAngles = new Vector3(0, 0, 0); //rotate the player to face the right direction
+            anim.SetBool("Moving", true);
+        }
+
         //moving left
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             gameObject.transform.position += new Vector3(-MoveSpeed, 0, 0);
+            transform.localEulerAngles = new Vector3(0, 180, 0); //rotate the player to face the right direction
+            anim.SetBool("Moving", true);
+        }
+
+        else
+        {
+            anim.SetBool("Moving", false);
         }
 
         #region Jump Controls
@@ -94,9 +111,13 @@ public class PlayerController : MonoBehaviour {
             if (HaveDoubleJump == false && CanDoubleJump) //if we have double jump ability and are using the double jump
             {
                 rb.velocity = new Vector2(rb.velocity.x, JumpPower / 1.5f); //give weaker jump
+                aud.PlayOneShot(DoubleJump);
             }
             else
+            {
                 rb.velocity = new Vector2(rb.velocity.x, JumpPower); //otherwise jump normally
+                aud.PlayOneShot(NormalJump);
+            }
         }
 
         //could have sworn i put this in earlier
@@ -169,6 +190,7 @@ public class PlayerController : MonoBehaviour {
         if(other.tag =="Kill")
         {
             gameObject.transform.position = other.gameObject.GetComponent<KillInfo>().tele.transform.position;
+            aud.PlayOneShot(Death);
         }
 
    }
