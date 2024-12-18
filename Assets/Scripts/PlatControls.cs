@@ -10,6 +10,7 @@ public class PlatControls : MonoBehaviour {
     public GameObject mCamera,DestroyedV;
     [HideInInspector] //these get filled by the button
     public GameObject Area, Removable, Destination,removeDestination,removeArea;
+    public bool horozontal;
 
     AudioSource aud;
 	#endregion
@@ -33,12 +34,15 @@ public class PlatControls : MonoBehaviour {
         {
             Movement = false;
             //making the destruction anim
-            Instantiate(DestroyedV, Removable.transform.position, Removable.transform.rotation);
+            if(horozontal)
+                Instantiate(DestroyedV, Removable.transform.position, Quaternion.Euler(new Vector3(0,0,90)));
+            else
+                Instantiate(DestroyedV, Removable.transform.position, Quaternion.identity);
             Removable.SetActive(false);
-           // Removable = null; //removable needs to no longer exsist so it weont play when there is no removable
+            Removable = null; //removable needs to no longer exsist so it wont play when there is no removable
 
            //stop the sound
-           aud.Pause();
+           aud.Pause(); 
         }
         else if (Movement)
         {
@@ -59,7 +63,7 @@ public class PlatControls : MonoBehaviour {
     }
 
     //my idea is to have all of the platform moving stuff here, we can change all of the public variables based on the button number (which gets passed through by player)
-    public void MovePlat(int ButtonNum, GameObject tempArea, GameObject tempRemovable,GameObject tempDestination)
+    public void MovePlat(int ButtonNum, GameObject tempArea, GameObject tempRemovable,GameObject tempDestination, bool isHorz)
     {
         //for example
         if(ButtonNum == 1)
@@ -109,6 +113,7 @@ public class PlatControls : MonoBehaviour {
             Destination = tempDestination;
             Movement = true;
         }
+        horozontal = isHorz;
         aud.time = 0;
         aud.Play();
     }

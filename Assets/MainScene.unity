@@ -7120,6 +7120,11 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114313623869202210, guid: 08a79cad447da404fb1fe48db978ed9d,
+        type: 2}
+      propertyPath: horozontal
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08a79cad447da404fb1fe48db978ed9d, type: 2}
   m_IsPrefabParent: 0
@@ -10957,6 +10962,7 @@ MonoBehaviour:
   Destination: {fileID: 1362848855}
   removeDestination: {fileID: 1788691395}
   removeArea: {fileID: 1362848855}
+  horozontal: 0
 --- !u!4 &1389259475
 Transform:
   m_ObjectHideFlags: 0
@@ -11307,12 +11313,14 @@ MonoBehaviour:
   Destination: {fileID: 243687737}
   removeArea: {fileID: 0}
   removeDestination: {fileID: 0}
+  horozontal: 1
   ButtonNum2: 0
   Area2: {fileID: 0}
   Removable2: {fileID: 0}
   Destination2: {fileID: 0}
   removeArea2: {fileID: 0}
   removeDestination2: {fileID: 0}
+  horozontal2: 0
   BackgroundImage: {fileID: 236821619}
   JumpExplainer: {fileID: 1867739304}
 --- !u!1001 &1515399621
@@ -12986,6 +12994,7 @@ MonoBehaviour:
   Destination: {fileID: 1362848855}
   removeDestination: {fileID: 1788691395}
   removeArea: {fileID: 1362848855}
+  horozontal: 0
 --- !u!4 &1753032713
 Transform:
   m_ObjectHideFlags: 0

@@ -157,8 +157,7 @@ public class PlayerController : MonoBehaviour {
                 print("Obtained double jump ability");
             }
             //call the platform moving method and give it the button num
-            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
-            other.GetComponent<BoxCollider2D>().enabled = false;
+            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination, other.gameObject.GetComponent<ButtonInfo>().horozontal); other.GetComponent<BoxCollider2D>().enabled = false;
             other.GetComponent<SpriteRenderer>().enabled = false;
         }
        //if you just want to remove an area (this might not be useful)
@@ -172,16 +171,15 @@ public class PlayerController : MonoBehaviour {
         if (other.tag == "BothButton")
         {
             print("Huh?");
-            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
-            PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
+            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination, other.gameObject.GetComponent<ButtonInfo>().horozontal); PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
             other.gameObject.SetActive(false);
         }
         //move two areas at once (crazy i know)
         if (other.tag == "DoubleButton")
         {
-            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination);
+            PlatCon.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum, other.gameObject.GetComponent<ButtonInfo>().Area, other.gameObject.GetComponent<ButtonInfo>().Removable, other.gameObject.GetComponent<ButtonInfo>().Destination, other.gameObject.GetComponent<ButtonInfo>().horozontal);
             PlatCon.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().removeArea, other.gameObject.GetComponent<ButtonInfo>().removeDestination);
-            PlatCon2.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum2, other.gameObject.GetComponent<ButtonInfo>().Area2, other.gameObject.GetComponent<ButtonInfo>().Removable2, other.gameObject.GetComponent<ButtonInfo>().Destination2);
+            PlatCon2.MovePlat(other.gameObject.GetComponent<ButtonInfo>().ButtonNum2, other.gameObject.GetComponent<ButtonInfo>().Area2, other.gameObject.GetComponent<ButtonInfo>().Removable2, other.gameObject.GetComponent<ButtonInfo>().Destination2, other.gameObject.GetComponent<ButtonInfo>().horozontal2);
             PlatCon2.RemovePlat(other.gameObject.GetComponent<ButtonInfo>().removeArea2, other.gameObject.GetComponent<ButtonInfo>().removeDestination2);
             other.gameObject.SetActive(false);
         }
