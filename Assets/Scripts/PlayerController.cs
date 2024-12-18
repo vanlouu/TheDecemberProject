@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour {
         PlatCon = GameObject.Find("Plat Manager").GetComponent<PlatControls>();
         PlatCon2 = GameObject.Find("Plat Manager2").GetComponent<PlatControls>();
         anim = GetComponent<Animator>();
+        aud=GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         //moving right
 		if(Input.GetKey(KeyCode.D))
 		{
-			gameObject.transform.position += new Vector3(MoveSpeed,0,0);
+			gameObject.transform.position += new Vector3(MoveSpeed*Time.deltaTime,0,0);
             transform.localEulerAngles = new Vector3(0, 0, 0); //rotate the player to face the right direction
             anim.SetBool("Moving", true);
         }
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour {
         //moving left
         else if (Input.GetKey(KeyCode.A))
         {
-            gameObject.transform.position += new Vector3(-MoveSpeed, 0, 0);
+            gameObject.transform.position += new Vector3(-MoveSpeed * Time.deltaTime, 0, 0);
             transform.localEulerAngles = new Vector3(0, 180, 0); //rotate the player to face the right direction
             anim.SetBool("Moving", true);
         }
@@ -114,7 +115,7 @@ public class PlayerController : MonoBehaviour {
             {
                 rb.velocity = new Vector2(rb.velocity.x, JumpPower / 1.5f); //give weaker jump
                 Instantiate(dJump,GameObject.Find("JumpCheck").transform.position, Quaternion.identity);
-          //      aud.PlayOneShot(DoubleJump);
+                aud.PlayOneShot(DoubleJump);
             }
             else
             {

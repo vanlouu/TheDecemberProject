@@ -9,49 +9,49 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1858808577279446}
+  m_RootGameObject: {fileID: 1356685637337360}
   m_IsPrefabParent: 1
---- !u!1 &1858808577279446
+--- !u!1 &1356685637337360
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4459608296429250}
-  - component: {fileID: 212107410617001328}
-  - component: {fileID: 95589901129436484}
-  - component: {fileID: 114792483442159902}
+  - component: {fileID: 4642248563473624}
+  - component: {fileID: 212017141232871056}
+  - component: {fileID: 95661333178329098}
+  - component: {fileID: 114405708978600004}
   m_Layer: 0
-  m_Name: DestroyedVerticalBrickRow
+  m_Name: djumpEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4459608296429250
+--- !u!4 &4642248563473624
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1858808577279446}
+  m_GameObject: {fileID: 1356685637337360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5073575, y: -2.027722, z: 0}
+  m_LocalPosition: {x: 3.91, y: -6.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95589901129436484
+--- !u!95 &95661333178329098
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1858808577279446}
+  m_GameObject: {fileID: 1356685637337360}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 90b411af04c030b4e94129e6f116bf70, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4fc2496e054850f4f817d81a36ef3e6f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -59,23 +59,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114792483442159902
+--- !u!114 &114405708978600004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1858808577279446}
+  m_GameObject: {fileID: 1356685637337360}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13e573eebe2490042931fa2b1906f907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212107410617001328
+--- !u!212 &212017141232871056
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1858808577279446}
+  m_GameObject: {fileID: 1356685637337360}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -101,13 +101,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f61802bb265ef2428be05a4031b06e4, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 0cc75fd333dba534b99752f1c1a821fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 4.2}
+  m_Size: {x: 0.6, y: 0.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
