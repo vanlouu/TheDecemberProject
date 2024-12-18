@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour {
     public PlatControls PlatCon;
     public PlatControls PlatCon2;
 
+    public GameObject dJump;
+
     Animator anim;
 
     AudioSource aud;
@@ -111,6 +113,7 @@ public class PlayerController : MonoBehaviour {
             if (HaveDoubleJump == false && CanDoubleJump) //if we have double jump ability and are using the double jump
             {
                 rb.velocity = new Vector2(rb.velocity.x, JumpPower / 1.5f); //give weaker jump
+                Instantiate(dJump,GameObject.Find("JumpCheck").transform.position, Quaternion.identity);
           //      aud.PlayOneShot(DoubleJump);
             }
             else

@@ -34,11 +34,17 @@ public class PlatControls : MonoBehaviour {
         {
             Movement = false;
             //making the destruction anim
-            if(horozontal)
-                Instantiate(DestroyedV, Removable.transform.position, Quaternion.Euler(new Vector3(0,0,90)));
-            else
+            if (horozontal && Removable != null)
+            {
+                Instantiate(DestroyedV, Removable.transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                Removable.SetActive(false);
+
+            }
+            else if (Removable != null)
+            {
                 Instantiate(DestroyedV, Removable.transform.position, Quaternion.identity);
-            Removable.SetActive(false);
+                Removable.SetActive(false);
+            }
             Removable = null; //removable needs to no longer exsist so it wont play when there is no removable
 
            //stop the sound
